@@ -9,7 +9,10 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - J:/Storage/postgres_data:/var/lib/postgresql/data
+      # Windows
+      #- J:/Storage/postgres_data:/var/lib/postgresql/data
+      # Mac
+      - /Volumes/T7/Storage/postgres_data:/var/lib/postgresql/data
 
   pgadmin:
     image: dpage/pgadmin4:latest
@@ -22,8 +25,9 @@ services:
     depends_on:
       - postgres
     volumes:
-      - J:/Storage/pgadmin_data:/var/lib/pgadmin
-
+      # Windows
+      # - J:/Storage/pgadmin_data:/var/lib/pgadmin
+      - /Volumes/T7/Storage/pgadmin_data:/var/lib/pgadmin
 volumes:
   postgres_data:
     driver: local
